@@ -1,0 +1,23 @@
+# Node modules
+Backend/node_modules
+Frontend/frontend/node_modules
+
+# Env files
+Backend/.env
+Frontend/frontend/.env
+
+# Build output
+Frontend/frontend/dist
+
+# Logs
+*.log
+npm-debug.log
+pnpm-debug.log
+yarn-debug.log
+
+# IDE files
+.vscode
+.idea
+
+# OS junk
+.DS_Store
