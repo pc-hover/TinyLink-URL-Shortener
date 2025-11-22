@@ -81,21 +81,26 @@ export default function Dashboard() {
                                     </td>
                                     <td className="px-4 py-2 text-center">
                                         <div className="flex items-center justify-center gap-2">
-                                            <button
-                                                onClick={async () => {
-                                                    try {
-                                                        const shortUrl = `http://localhost:3000/${link.code}`;
+                                           <button
+    onClick={async () => {
+        try {
+            const base =
+                import.meta.env.VITE_PUBLIC_BASE_URL ||
+                window.location.origin;
 
-                                                        await navigator.clipboard.writeText(shortUrl);
-                                                        alert("Copied to clipboard:\n" + shortUrl);
-                                                    } catch {
-                                                        alert("Copy failed");
-                                                    }
-                                                }}
-                                                className="px-2 py-1 border rounded text-sm"
-                                            >
-                                                Copy
-                                            </button>
+            const shortUrl = `${base}/${link.code}`;
+
+            await navigator.clipboard.writeText(shortUrl);
+            alert("Copied to clipboard:\n" + shortUrl);
+        } catch {
+            alert("Copy failed");
+        }
+    }}
+    className="px-2 py-1 border rounded text-sm"
+>
+    Copy
+</button>
+
                                             <button
                                                 onClick={() => handleDelete(link.code)}
                                                 className="px-2 py-1 bg-red-500 text-white rounded text-sm"
